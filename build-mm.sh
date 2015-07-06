@@ -1,4 +1,10 @@
 set -x
+if [ "$#" -ne 1 ]
+then
+  echo "Please specify Conda environment name"
+  exit 1
+fi
+
 [ -d mixturemodel ] && rm -rf mixturemodel
 git clone git@github.com:datamicroscopes/mixturemodel.git
 

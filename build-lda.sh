@@ -1,4 +1,10 @@
 set -x
+if [ "$#" -ne 1 ]
+then
+  echo "Please specify Conda environment name"
+  exit 1
+fi
+
 [ -d lda ] && rm -rf lda
 git clone git@github.com:datamicroscopes/lda.git
 git checkout feature/crp-sampler

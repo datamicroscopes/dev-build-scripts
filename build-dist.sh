@@ -1,11 +1,16 @@
-set -e
+set -x
+if [ "$#" -ne 1 ]
+then
+  echo "Please specify Conda environment name"
+  exit 1
+fi
+
+[ -d distributions ] && rm -rf distributions
 rm -rf distributions
 git clone git@github.com:datamicroscopes/distributions.git
 pushd distributions
 git reset --hard HEAD
 make clean
-conda remove -n $1 --all
-conda create -n $1 cmake eigen3 anaconda
 pip install pyflakes
 source activate $1
 make protobuf

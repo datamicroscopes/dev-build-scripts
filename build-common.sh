@@ -1,4 +1,9 @@
 set -x
+if [ "$#" -ne 1 ]
+then
+  echo "Please specify Conda environment name"
+  exit 1
+fi
 
 [ -d common ] && rm -rf common
 git clone git@github.com:datamicroscopes/common.git

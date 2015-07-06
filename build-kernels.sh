@@ -1,4 +1,10 @@
-set -e
+set -x
+if [ "$#" -ne 1 ]
+then
+  echo "Please specify Conda environment name"
+  exit 1
+fi
+
 [ -d kernels ] && rm -rf kernels
 git clone git@github.com:datamicroscopes/kernels.git
 
