@@ -7,8 +7,6 @@ fi
 
 [ -d lda ] && rm -rf lda
 git clone git@github.com:datamicroscopes/lda.git
-git checkout feature/crp-sampler
-git pull --rebase
 pushd lda
 source activate $1
 conda install cython
